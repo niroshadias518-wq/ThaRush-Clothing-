@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | ThaRush Clothing</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { brand: { red: '#FF0033', dark: '#0A0A0A' } },
+                    fontFamily: { sans: ['"Exo 2"', 'sans-serif'], display: ['"Orbitron"', 'sans-serif'] }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;700&family=Orbitron:wght@700&display=swap"
+        rel="stylesheet">
+</head>
+
+<body class="bg-brand-dark text-white font-sans">
+    <nav class="fixed w-full z-50 bg-brand-dark/90 backdrop-blur-md border-b border-white/10">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-2xl font-display font-black">THA<span
+                    class="text-brand-red">RUSH</span></a>
+            <div class="hidden md:flex space-x-8">
+                <a href="index.html" class="text-gray-300 hover:text-white font-bold uppercase text-sm">Home</a>
+                <a href="shop.html" class="text-gray-300 hover:text-white font-bold uppercase text-sm">Shop</a>
+                <a href="about.html" class="text-white font-bold uppercase text-sm">About</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mx-auto px-6 pt-32 pb-12">
+        <div class="text-center max-w-3xl mx-auto mb-16">
+            <h1 class="text-5xl font-display font-black mb-6">DRIVEN BY <span class="text-brand-red">PASSION</span></h1>
+            <p class="text-xl text-gray-400">
+                ThaRush Clothing isn't just a brand; it's a tribute to the asphalt, the engine roars, and the adrenaline
+                of speed.
+            </p>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 items-center mb-24">
+            <div class="relative bg-gray-800 rounded-2xl h-96 overflow-hidden flex items-center justify-center">
+                <div class="absolute inset-0 bg-gradient-to-tr from-brand-red/20 to-transparent"></div>
+                <h3 class="text-4xl font-display font-black text-white/10 rotate-12">EST. 2024</h3>
+            </div>
+            <div>
+                <h2 class="text-3xl font-display font-bold mb-4">Our Story</h2>
+                <p class="text-gray-400 leading-relaxed mb-6">
+                    Born from a love for Formula 1 and JDM car culture, ThaRush Clothing was created to bridge the gap
+                    between high-octane automotive enthusiasm and premium streetwear. We noticed that most car merch was
+                    either too plain or too loud. We wanted something sleek. Something you could wear to a car meet or a
+                    night out.
+                </p>
+                <p class="text-gray-400 leading-relaxed">
+                    Every piece is designed with the "ThaRush" aesthetic—clean front branding representing the
+                    community, and bold, artistic back prints paying homage to the machines we love.
+                </p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-8 text-center">
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                <div class="text-brand-red text-4xl mb-4 font-display font-bold">01</div>
+                <h3 class="font-bold text-xl mb-2">Premium Quality</h3>
+                <p class="text-gray-500 text-sm">Heavyweight cotton blends that stand the test of time.</p>
+            </div>
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                <div class="text-brand-red text-4xl mb-4 font-display font-bold">02</div>
+                <h3 class="font-bold text-xl mb-2">Unique Art</h3>
+                <p class="text-gray-500 text-sm">Original designs inspired by iconic racing moments.</p>
+            </div>
+            <div class="bg-white/5 p-8 rounded-2xl border border-white/5">
+                <div class="text-brand-red text-4xl mb-4 font-display font-bold">03</div>
+                <h3 class="font-bold text-xl mb-2">Speed Delivery</h3>
+                <p class="text-gray-500 text-sm">Fast islandwide delivery, because we hate waiting too.</p>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

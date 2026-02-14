@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ThaRush Clothing | Wear the Speed</title>
+    <meta name="description" content="Premium automotive apparel featuring F1, Supercars, and JDM designs.">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            red: '#FF0033',
+                            dark: '#0A0A0A',
+                            gray: '#1F1F1F'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['"Exo 2"', 'sans-serif'],
+                        display: ['"Orbitron"', 'sans-serif'],
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'spin-slow': 'spin 12s linear infinite',
+                    },
+                    keyframes: {
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS -->
+    <style>
+        .glass-nav {
+            background: rgba(10, 10, 10, 0.8);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(255, 0, 51, 0.5);
+        }
+        .card-hover:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -10px rgba(255, 0, 51, 0.3);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 5px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #FF0033;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-white font-sans antialiased overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass-nav transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="text-3xl font-display font-black tracking-tighter">
+                    THA<span class="text-brand-red text-glow">RUSH</span>
+                </a>
+                
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="index.html" class="text-gray-300 hover:text-white transition-colors uppercase tracking-widest text-sm font-bold">Home</a>
+                    <a href="shop.html" class="text-gray-300 hover:text-white transition-colors uppercase tracking-widest text-sm font-bold">Shop</a>
+                    <a href="about.html" class="text-gray-300 hover:text-white transition-colors uppercase tracking-widest text-sm font-bold">About</a>
+                    <a href="contact.html" class="text-gray-300 hover:text-white transition-colors uppercase tracking-widest text-sm font-bold">Contact</a>
+                </div>
+
+                <div class="flex items-center space-x-4">
+                    <button class="p-2 hover:bg-white/10 rounded-full transition-colors relative" onclick="toggleCart()">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z" />
+                        </svg>
+                        <span class="absolute top-0 right-0 h-4 w-4 bg-brand-red rounded-full text-[10px] flex items-center justify-center font-bold" id="cart-count">0</span>
+                    </button>
+                    <!-- Mobile Menu Button -->
+                    <button class="md:hidden p-2 text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-brand-dark border-t border-white/10 p-4">
+            <div class="flex flex-col space-y-4">
+                <a href="index.html" class="block text-gray-300 hover:text-white">Home</a>
+                <a href="shop.html" class="block text-gray-300 hover:text-white">Shop</a>
+                <a href="about.html" class="block text-gray-300 hover:text-white">About</a>
+                <a href="contact.html" class="block text-gray-300 hover:text-white">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-brand-red/20 via-brand-dark to-brand-dark"></div>
+            <div class="absolute top-1/4 left-0 w-72 h-72 bg-brand-red/10 rounded-full blur-[100px] animate-pulse"></div>
+            <div class="absolute bottom-0 right-0 w-96 h-96 bg-blue-600/10 rounded-full blur-[100px]"></div>
+        </div>
+
+        <div class="container mx-auto px-6 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <div class="inline-block px-4 py-1 border border-brand-red/30 rounded-full bg-brand-red/10 backdrop-blur-sm">
+                    <span class="text-brand-red text-sm font-bold tracking-widest uppercase">Premium Racing Apparel</span>
+                </div>
+                <h1 class="text-6xl md:text-8xl font-display font-black leading-tight">
+                    IGNITE THE <br/>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-red to-orange-600">ADRENALINE</span>
+                </h1>
+                <p class="text-gray-400 text-lg md:text-xl max-w-lg">
+                    Exclusive collection featuring Formula 1 legends and Supercar masterpieces. Designed for speed, crafted for style.
+                </p>
+                <div class="flex space-x-4 pt-4">
+                    <a href="shop.html" class="group px-8 py-4 bg-brand-red text-white font-bold rounded-full hover:bg-red-600 transition-all transform hover:scale-105 shadow-[0_0_20px_rgba(255,0,51,0.4)] flex items-center">
+                        SHOP COLLECTION
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 ml-2 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                        </svg>
+                    </a>
+                    <a href="#featured" class="px-8 py-4 border border-white/20 rounded-full hover:bg-white/10 transition-all font-bold">
+                        EXPLORE
+                    </a>
+                </div>
+            </div>
+            
+            <div class="relative animate-float block w-full h-full min-h-[400px]">
+                <!-- Abstract Representation of a T-Shirt if Image Fails -->
+                <div class="relative w-full aspect-[4/5] bg-gradient-to-br from-gray-800 to-black rounded-3xl border border-white/10 shadow-2xl flex items-center justify-center overflow-hidden group">
+                     <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1583121274602-3e2820c69888?q=80&w=2070&auto=format&fit=crop')] bg-cover bg-center opacity-40 mix-blend-overlay"></div>
+                     <div class="relative z-10 text-center p-8">
+                         <h3 class="text-4xl font-display font-bold text-white mb-2">THARUSH</h3>
+                         <p class="text-brand-red tracking-[0.5em] text-sm">CLOTHING</p>
+                         <div class="mt-8 border-t border-white/20 pt-4">
+                             <p class="text-gray-400 text-sm">BACK PRINT PREVIEW</p>
+                             <div class="text-6xl font-black italic text-white/10 group-hover:text-brand-red/20 transition-colors duration-500">SPEED</div>
+                         </div>
+                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Marquee -->
+    <div class="bg-brand-red py-4 overflow-hidden -skew-y-2 transform origin-left">
+        <div class="flex whitespace-nowrap animate-marquee">
+            <span class="text-2xl font-display font-black text-black mx-8">FORMULA 1</span>
+            <span class="text-2xl font-display font-black text-white mx-8">•</span>
+            <span class="text-2xl font-display font-black text-black mx-8">SUPERCARS</span>
+            <span class="text-2xl font-display font-black text-white mx-8">•</span>
+            <span class="text-2xl font-display font-black text-black mx-8">JDM LEGENDS</span>
+            <span class="text-2xl font-display font-black text-white mx-8">•</span>
+            <span class="text-2xl font-display font-black text-black mx-8">HIGH QUALITY COTTON</span>
+            <span class="text-2xl font-display font-black text-white mx-8">•</span>
+            <span class="text-2xl font-display font-black text-black mx-8">ISLANDWIDE DELIVERY</span>
+            <span class="text-2xl font-display font-black text-white mx-8">•</span>
+        </div>
+    </div>
+
+    <!-- Featured Section -->
+    <section id="featured" class="py-24 bg-brand-dark relative">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <span class="text-brand-red font-bold tracking-widest uppercase text-sm">Latest Drops</span>
+                <h2 class="text-4xl md:text-5xl font-display font-bold mt-2">TRENDING NOW</h2>
+                <div class="w-24 h-1 bg-brand-red mx-auto mt-6"></div>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8" id="featured-products">
+                <!-- Product 1 -->
+                <div class="group bg-brand-gray rounded-2xl overflow-hidden border border-white/5 hover:border-brand-red/50 transition-all duration-300 card-hover">
+                    <div class="relative aspect-[4/5] bg-gray-800 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60"></div>
+                        <!-- Front View -->
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 transition-opacity duration-300 group-hover:opacity-0">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-display font-bold text-white/20">THARUSH</h3>
+                            </div>
+                        </div>
+                        <!-- Back View (Hover) -->
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <div class="text-center p-4">
+                                <span class="block text-4xl text-brand-red font-display font-black">F1</span>
+                                <span class="text-sm text-gray-400">MONACO GP EDITION</span>
+                            </div>
+                        </div>
+                        <div class="absolute bottom-4 left-4 z-20">
+                            <span class="bg-brand-red text-white text-xs font-bold px-2 py-1 rounded">NEW</span>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Monaco Speedster</h3>
+                        <p class="text-gray-400 text-sm mb-4">Oversized Fit • Heavyweight Cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-brand-red">LKR 4,500</span>
+                            <button onclick="addToCart(1)" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 2 -->
+                <div class="group bg-brand-gray rounded-2xl overflow-hidden border border-white/5 hover:border-brand-red/50 transition-all duration-300 card-hover">
+                    <div class="relative aspect-[4/5] bg-gray-800 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 transition-opacity duration-300 group-hover:opacity-0">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-display font-bold text-white/20">THARUSH</h3>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <div class="text-center p-4">
+                                <span class="block text-4xl text-blue-500 font-display font-black">GTR</span>
+                                <span class="text-sm text-gray-400">GODZILLA EDITION</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">JDM Legend R34</h3>
+                        <p class="text-gray-400 text-sm mb-4">Oversized Fit • Heavyweight Cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-brand-red">LKR 4,500</span>
+                            <button onclick="addToCart(2)" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Product 3 -->
+                <div class="group bg-brand-gray rounded-2xl overflow-hidden border border-white/5 hover:border-brand-red/50 transition-all duration-300 card-hover">
+                    <div class="relative aspect-[4/5] bg-gray-800 overflow-hidden">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent z-10 opacity-60"></div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 transition-opacity duration-300 group-hover:opacity-0">
+                            <div class="text-center">
+                                <h3 class="text-2xl font-display font-bold text-white/20">THARUSH</h3>
+                            </div>
+                        </div>
+                        <div class="absolute inset-0 flex items-center justify-center bg-gray-900 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                             <div class="text-center p-4">
+                                <span class="block text-4xl text-yellow-500 font-display font-black">911</span>
+                                <span class="text-sm text-gray-400">TURBO S LEGACY</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-1">Stuttgart Beast</h3>
+                        <p class="text-gray-400 text-sm mb-4">Oversized Fit • Heavyweight Cotton</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-brand-red">LKR 4,800</span>
+                            <button onclick="addToCart(3)" class="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center hover:bg-brand-red hover:text-white transition-colors">
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="shop.html" class="inline-block border-b-2 border-brand-red text-white hover:text-brand-red pb-1 transition-colors uppercase tracking-widest text-sm font-bold">View All Products</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-black border-t border-white/10 pt-16 pb-8">
+        <div class="container mx-auto px-6">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div>
+                    <a href="#" class="text-2xl font-display font-black">THA<span class="text-brand-red">RUSH</span></a>
+                    <p class="text-gray-500 mt-4 text-sm leading-relaxed">
+                        Redefining automotive apparel with premium quality and artistic designs. Wear your passion.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-wider">Shop</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="shop.html" class="hover:text-brand-red transition-colors">All Products</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">Formula 1</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">Supercars</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-wider">Help</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="#" class="hover:text-brand-red transition-colors">Size Guide</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">Shipping Info</a></li>
+                        <li><a href="#" class="hover:text-brand-red transition-colors">Returns</a></li>
+                        <li><a href="contact.html" class="hover:text-brand-red transition-colors">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold text-white mb-4 uppercase tracking-wider">Stay in the Loop</h4>
+                    <div class="flex">
+                        <input type="email" placeholder="Enter your email" class="bg-gray-900 border border-gray-800 text-white px-4 py-2 w-full focus:outline-none focus:border-brand-red rounded-l">
+                        <button class="bg-brand-red px-4 text-white font-bold rounded-r hover:bg-red-600 transition-colors">GO</button>
+                    </div>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-gray-600 text-xs">
+                &copy; 2024 ThaRush Clothing. All rights reserved. Designed for Speed.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="js/main.js"></script>
+</body>
+</html>
